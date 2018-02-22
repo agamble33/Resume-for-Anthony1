@@ -1,4 +1,6 @@
-html {
+@media all and (max-width: 961px){
+	
+	html {
 	background: url(../images/background.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -9,7 +11,7 @@ html {
 
 }
 
-.profile-box { 
+	.profile-box { 
 	width: 400px;
 	height: 400px;
 	background: rgba(0,0,0,0,4);
@@ -20,35 +22,37 @@ html {
 	text-align: center;
  }
 
- .prof-pic {
+	.prof-pic {
  	border-radius: 80px;
  	height: 240px;
  	width: 240px;
 
  }
 
- h1{
+ 	h1{
  	font-weight: 100;
 	letter-spacing: 5;
 	font-size: 35px;
 }
 
-p{
+	p{
 	font-weight: 200;
 	letter-spacing: 1;
 
 }
 
-.social-icons{
+	.social-icons{
 	font-size: 40px;
 }
 
-.social-icons a{
+	.social-icons a{
 	color: white
 }
 
-.line-break{
+	.line-break{
 	width: 300px;
 	margin: 0 auto;
 	border-top: 1px solid white;
+
 }
+
