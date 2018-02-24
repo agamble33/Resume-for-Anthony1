@@ -54,7 +54,10 @@ p{
 }
 
 
-@media all and (max-width: 961px){
+@media screen and (min-width: 480px) {
+    #leftsidebar {width: 600px; float: left;}
+    #main {margin-left: 616px;}
+}
 
 	html{
 	background: url(../images/background.jpg) no-repeat center center fixed;
