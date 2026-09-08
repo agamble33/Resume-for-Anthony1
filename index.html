@@ -1,193 +1,76 @@
-<!DOCTYPE html>
-<html lang="en" >
-
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Anthonys Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel='stylesheet' href='https://www.w3schools.com/lib/w3.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
-
-      <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" language="javascript">
-<!--
-// Email obfuscator script 2.1 by Tim Williams, University of Arizona
-// Random encryption key feature coded by Andrew Moulden
-// This code is freeware provided these four comment lines remain intact
-// A wizard to generate this code is at http://www.jottings.com/obfuscator/
-{ coded = ""
-  key = "4UbWEnByQR7wj5lPJK1D0sCHXgY823LkVTF6tpNAxfhMamr9oOzSuedIcZqviG"
-  shift=coded.length
-  link=""
-  for (i=0; i<coded.length; i++) {
-    if (key.indexOf(coded.charAt(i))==-1) {
-      ltr = coded.charAt(i)
-      link += (ltr)
-    }
-    else {     
-      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
-      link += (key.charAt(ltr))
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tony Gamble · Software Engineer</title>
+<meta name="description" content="Tony Gamble, software engineer. Let's talk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
+<style>
+  :root{
+    --sky:#0b0f2b; --sky2:#1a2352; --ground:#2a7a3b; --dirt:#5a3a1e; --brick:#b5462f;
+    --coin:#ffd23f; --ink:#f4f4f0; --muted:#9aa3c7; --box:#f7b733;
   }
-document.write("<a href='mailto:"+link+"'>"+link+"</a>")
-}
-//-->
-</script><noscript>Sorry, you need Javascript on to email me.</noscript>
-
-
-  
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:linear-gradient(var(--sky) 0%, var(--sky2) 70%, var(--sky2) 100%);
+    color:var(--ink); font-family:"VT323","Courier New",monospace; font-size:24px;
+    display:flex; flex-direction:column; min-height:100vh; overflow-x:hidden;
+    image-rendering:pixelated;
+  }
+  .hud{display:flex;justify-content:space-between;padding:16px 20px;font-family:"Press Start 2P",monospace;font-size:11px;color:var(--coin);letter-spacing:.04em}
+  .hud span{white-space:nowrap}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 20px 140px;position:relative}
+  .stars{position:absolute;inset:0;pointer-events:none}
+  .stars i{position:absolute;width:3px;height:3px;background:#fff;opacity:.8;animation:tw 2.4s infinite}
+  @keyframes tw{50%{opacity:.2}}
+  h1{font-family:"Press Start 2P",monospace;font-size:clamp(20px,4.5vw,40px);line-height:1.5;margin:0 0 14px;text-shadow:4px 4px 0 #000}
+  .sub{font-size:clamp(22px,3vw,32px);color:var(--muted);margin:0 0 30px;text-shadow:2px 2px 0 #000}
+  .box{
+    display:inline-block;background:var(--box);color:#3a1d00;border:4px solid #000;
+    box-shadow:6px 6px 0 #000;padding:14px 26px;font-family:"Press Start 2P",monospace;font-size:clamp(11px,1.8vw,16px);
+    text-decoration:none;position:relative;transition:transform .08s
+  }
+  .box:hover,.box:focus{transform:translate(2px,2px);box-shadow:4px 4px 0 #000;outline:3px solid var(--coin);outline-offset:4px}
+  .box::before{content:"?";position:absolute;left:-30px;top:50%;transform:translateY(-50%);width:26px;height:26px;background:var(--coin);border:3px solid #000;color:#000;font-size:14px;line-height:20px;text-align:center}
+  .blink{animation:bl 1.1s steps(2) infinite;margin-top:34px;font-size:22px;color:var(--ink)}
+  @keyframes bl{50%{opacity:0}}
+  .ground{position:fixed;left:0;right:0;bottom:0;height:110px;
+    background:
+      linear-gradient(var(--ground) 0 28px, transparent 28px) top/100% 28px no-repeat,
+      repeating-linear-gradient(90deg,var(--dirt) 0 40px,#4a2f17 40px 80px);
+  }
+  .ground::before{content:"";position:absolute;top:0;left:0;right:0;height:28px;
+    background:repeating-linear-gradient(90deg,transparent 0 30px,#1f5c2c 30px 34px)}
+  .hero{position:absolute;bottom:110px;left:8%;width:32px;height:44px;background:
+    linear-gradient(#d33 0 12px,#f9c 12px 24px,#33a 24px 40px,#5a3a1e 40px 44px);
+    border:3px solid #000;animation:hop 1.8s ease-in-out infinite}
+  @keyframes hop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-38px)}}
+  .cloud{position:absolute;background:#fff;border:3px solid #000;height:22px;width:90px;opacity:.9;animation:drift 40s linear infinite}
+  .cloud.b{top:22%;left:-120px;animation-duration:55s;width:60px}
+  @keyframes drift{to{transform:translateX(120vw)}}
+  footer{position:fixed;bottom:118px;right:16px;font-size:16px;color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){.hero,.cloud,.stars i,.blink{animation:none}}
+</style>
 </head>
-
 <body>
-
-  <!-- Author: Anthony Gamble -->
-<!-- Date: November 2, 2018 -->
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <ul class="w3-navbar" id="myNavbar">
-    <li><a href="#" class="w3-padding-large">Home</a></li>
-    <li class="w3-hide-small w3-right">
-      <a href="#contact" class="w3-padding-large">Contact</a>
-    </li>
-    <li class="w3-hide-small w3-right">
-      <a href="#portfolio" class="w3-padding-large">Portfolio</a>
-    </li>
-    <li class="w3-hide-small w3-right">
-      <a href="#about" class="w3-padding-large">About</a>
-    </li>
-  </ul>
-</div>
-
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-opacity w3-display-container">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <h1 class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">ANTHONY  <span class="w3-hide-small">GAMBLE</span></h1>
+<div class="hud"><span>PLAYER 1 · TONY GAMBLE</span><span>ROLE · SOFTWARE ENGINEER</span><span>LIVES · ∞</span></div>
+<main>
+  <div class="stars" aria-hidden="true">
+    <i style="top:8%;left:12%"></i><i style="top:15%;left:70%;animation-delay:.4s"></i><i style="top:30%;left:35%;animation-delay:.9s"></i>
+    <i style="top:12%;left:48%;animation-delay:1.3s"></i><i style="top:26%;left:88%;animation-delay:.2s"></i><i style="top:40%;left:8%;animation-delay:1.7s"></i>
   </div>
-</div>
-
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h2 class="w3-center">ABOUT ME</h2>
-  <p class="w3-center"><em>I love innovation</em></p>
-  <p>My focus is frontend web development and I'm actively pursuing a career in that or related fields. University of North Texas Graduate and native of Michigan but I've resided in the Dallas Fort-Worth area for nearly 15 years. </p>
-  <!--  Profile Picture and Description  --> 
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-section">
-      <img src="images/profile.jpg" id="profile" class="w3-circle" alt="Photo of Me">
-    </div>
-
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-section">
-      <p>Some of my go-to resources are Google, Laracast, Udemy, and A cloud guru!</p>
-    </div>
-  </div>
-</div>
-
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container" id="portfolio">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-light-grey w3-wide">PORTFOLIO</span>
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64">
-  <h2 class="w3-center">MY WORK</h2>
-  <p class="w3-center"><em>Below are samples of my work.<br> (Click on the images to view website) </em></p><br>
-
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-        <a href="http://www.queeniejewelry.com/">
-          <img src="images/queeniehomepage.jpg" alt="clickableimage" style="width: 100%" class="w3-hover-opacity"> 
-          </a>
-    </div>
-  </div>
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <a href="https://ymtony817.itch.io/im-a-zombie/">
-          <img src="images/zombiegame.jpg" alt="clickableimage" style="width: 100%" class="w3-hover-opacity"> 
-       </a>
-      </div>
-  </div>    
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <a href="http://www.naturallycoiledsalon.com/">
-          <img src="images/ncs.jpg" alt="clickableimage" style="width: 100%" class="w3-hover-opacity"> 
-       </a>
-       
-    </div>
-  </div>
-</div>
-
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-closebtn w3-hover-red w3-text-white w3-xxxlarge w3-container w3-display-topright">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" style="max-width:100%">
-  </div>
-</div>
-
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container" id="contact">
-  <div class="w3-display-middle">
-    <h2 class="w3-xxlarge w3-text-light-grey w3-wide">CONTACT</h2>
-  </div>
-</div>
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64">
-  <h3 class="w3-center">Reach out to me</h3>
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-  <address class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m4 w3-container">
-      <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-round-large"></div>
-    </div>
-    <div class="w3-col m8 w3-container w3-section">
-      <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker w3-hover-text-black" style="width:30px"></i> Dallas, Texas<br>
-      
-      </div>
-      <p>Send me a message:</p>
-      <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Name">
-        </div>
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Email">
-        </div>
-      </div>
-      <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Comment/Questions">
-      <a href="mailto:agamble25@gmail.com" class="w3-btn w3-section w3-right">SEND</a>
-    </div>
-  </address>
-</div>
-
-<!-- Footer -->
-<footer class="w3-center w3-dark-grey w3-padding-48 w3-hover-black cf">
-  <div class="w3-half">
- 
-    <a target="_blank" href="https://www.linkedin.com/in/ymtony817">
-      <i class="fa fa-linkedin fa-2x"></i>
-    </a>
-    <a target="_blank" href="https://github.com/agamble33">
-      <i class="fa fa-github fa-2x"></i>
-    </a>
-  </div>
-  <p class="w3-half">Made with <span class="heart-icon">❤</span> by Anthony Gamble and Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
-</footer>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.4/SmoothScroll.min.js'></script>
-  <script  src="js/index.js"></script>
- 
-
-
-
-
+  <div class="cloud" style="top:14%;left:-100px" aria-hidden="true"></div>
+  <div class="cloud b" aria-hidden="true"></div>
+  <h1>SOFTWARE ENGINEER</h1>
+  <p class="sub">Web, mobile, AI. Twenty years of shipping. Let's talk.</p>
+  <a class="box" href="https://calendly.com/goalsandgambles/30min" rel="noopener">BOOK A 30 MIN CALL</a>
+  <div class="blink">▶ PRESS START</div>
+</main>
+<div class="hero" aria-hidden="true"></div>
+<div class="ground" aria-hidden="true"></div>
+<footer>© 2026 Goals and Gambles LLC</footer>
 </body>
-
 </html>
